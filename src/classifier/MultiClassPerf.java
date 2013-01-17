@@ -1,6 +1,6 @@
 package classifier;
 
-import test.Debug;
+import util.io.Debug;
 import abs.Performance;
 
 public class MultiClassPerf implements Performance{
@@ -23,12 +23,12 @@ public class MultiClassPerf implements Performance{
 
 	@Override
 	public void print() {
-		Debug.println("accuracy:" + (double)correct / all + ", "+correct +" / "+ all);
+		Debug.pl("accuracy:" + (double)correct / all + ", "+correct +" / "+ all);
 		for (int i = 0; i < cSize ; i++){
 			for (int j = 0; j < cSize ; j++){
 				Debug.print(confusion[i][j]+"\t");
 			}
-			Debug.println("");
+			Debug.pl("");
 		}
 	}
 

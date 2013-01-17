@@ -40,8 +40,8 @@ public class MultiTester extends Tester {
 		}
 
 		//			double prec = (double)numPredPosCorrect / numPredPos, rec = (double) numPredPosCorrect/ numPos;
-		//		Debug.println("precision: "+prec+"("+numPredPosCorrect +"/"+ numPredPos+")");
-		//		Debug.println("recall: "+rec+"("+numPredPosCorrect +"/"+ numPos+")");
+		//		Debug.pl("precision: "+prec+"("+numPredPosCorrect +"/"+ numPredPos+")");
+		//		Debug.pl("recall: "+rec+"("+numPredPosCorrect +"/"+ numPos+")");
 		double acc = (double) numPredPos / seq.instances.size();
 		System.out.println("#correct:\t"+numPredPos);
 		System.out.println("#total:\t"+seq.instances.size());

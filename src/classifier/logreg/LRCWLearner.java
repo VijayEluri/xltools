@@ -3,7 +3,7 @@ package classifier.logreg;
 import java.util.Arrays;
 import java.util.Collections;
 
-import test.Debug;
+import util.io.Debug;
 import abs.ClassData;
 import abs.Data;
 import abs.Instance;
@@ -34,7 +34,7 @@ public class LRCWLearner extends classifier.Learner{
 		this.m = m;
 		if (m == null)
 		{
-			Debug.println("learner doesn't have a model");
+			Debug.pl("learner doesn't have a model");
 			return;
 		}
 
@@ -88,7 +88,7 @@ public class LRCWLearner extends classifier.Learner{
 		do
 		{
 			long startBuild = System.currentTimeMillis();
-			Debug.println("conditional probability = "+cur);
+			Debug.pl("conditional probability = "+cur);
 			prev = cur;
 			Collections.shuffle(classdata.instances);
 			for (int idx_inst = 0; idx_inst < N; idx_inst++){
@@ -149,10 +149,10 @@ public class LRCWLearner extends classifier.Learner{
 			}	
 			long endBuild = System.currentTimeMillis();
 			double timeInSeconds = (double) (endBuild - startBuild) / (double) 1000;
-			Debug.println(idx_iter+"th iteration took " + timeInSeconds+" seconds");
+			Debug.pl(idx_iter+"th iteration took " + timeInSeconds+" seconds");
 			idx_iter++;
 		}while (Math.abs(prev-cur) >= eps && idx_iter < MAX_ITER_NUM);
-		Debug.println("final conditional probability = "+cur);
+		Debug.pl("final conditional probability = "+cur);
 //		System.out.println(Arrays.toString(w));
 	}
 

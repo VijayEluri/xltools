@@ -7,7 +7,7 @@ import gnu.trove.list.array.TDoubleArrayList;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 
-import test.Debug;
+import util.io.Debug;
 import util.Serializer;
 import util.V;
 import abs.ClassData;
@@ -97,7 +97,7 @@ public class NaiveBayes extends Model {
 	@Override
 	public void predict(Data data, String predFile, Performance perf){
 		if (nbpara==null){
-			Debug.errl("parameter missing");
+			Debug.pl("ERROR", "parameter missing");
 		}
 		try{
 			ClassData cData = (ClassData)data;

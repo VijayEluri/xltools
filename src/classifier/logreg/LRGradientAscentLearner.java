@@ -1,6 +1,6 @@
 package classifier.logreg;
 
-import test.Debug;
+import util.io.Debug;
 import abs.ClassData;
 import abs.Data;
 import abs.Instance;
@@ -18,7 +18,7 @@ public class LRGradientAscentLearner  extends classifier.Learner{
 		this.m = m;
 		if (m == null)
 		{
-			Debug.println("learner doesn't have a model");
+			Debug.pl("learner doesn't have a model");
 			return;
 		}
 
@@ -93,11 +93,11 @@ public class LRGradientAscentLearner  extends classifier.Learner{
 		int idx_iter = 0;
 		do
 		{
-			//        	Debug.println(idx_iter+"... ");
+			//        	Debug.pl(idx_iter+"... ");
 			long startBuild = System.currentTimeMillis();
 			//			m.predict(classdata, new MultiClassPerf(m.labelFactory.all_labels.size()));//test	
 			//        	tester.test(seqdata, m);//test
-			Debug.println("conditional probability = "+cur);
+			Debug.pl("conditional probability = "+cur);
 			prev = cur;
 
 			// l2 regularization
@@ -159,10 +159,10 @@ public class LRGradientAscentLearner  extends classifier.Learner{
 			}			
 			long endBuild = System.currentTimeMillis();
 			double timeInSeconds = (double) (endBuild - startBuild) / (double) 1000;
-			Debug.println(idx_iter+"th iteration took " + timeInSeconds+" seconds");
+			Debug.pl(idx_iter+"th iteration took " + timeInSeconds+" seconds");
 			idx_iter++;
 		}while (Math.abs(prev-cur) >= eps && idx_iter < MAX_ITER_NUM);
-		Debug.println("final conditional probability = "+cur);
+		Debug.pl("final conditional probability = "+cur);
 		double sum = 0;
 		for (int i = 0; i < F; i++){
 			sum += Math.abs(w[F+i]);

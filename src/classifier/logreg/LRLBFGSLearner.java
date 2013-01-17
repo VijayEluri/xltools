@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 
-import test.Debug;
+import util.io.Debug;
 import util.V;
 import util.io.FileUtil;
 import abs.ClassData;
@@ -134,7 +134,7 @@ public class LRLBFGSLearner extends Learner {
 			if (eta == 0){
 				break;
 			}
-			Debug.errl("log post = "+computePosterior(classdata.instances, wp, q, wtx, qtx, eta));
+			Debug.pl("ERROR", "log post = "+computePosterior(classdata.instances, wp, q, wtx, qtx, eta));
 			for (int i = 0; i < N; i++){
 				for (int j = 0; j < C; j++){
 					wtx[i][j] += eta * qtx[i][j]   ; // FIX x[n,c]?

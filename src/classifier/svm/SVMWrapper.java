@@ -8,7 +8,7 @@ import java.io.InputStreamReader;
 import java.util.Hashtable;
 import java.util.Map.Entry;
 
-import test.Debug;
+import util.io.Debug;
 import util.Serializer;
 import abs.ClassData;
 import abs.Data;
@@ -54,7 +54,7 @@ public class SVMWrapper extends Model{
 			String line = null;
 			while ((line = reader.readLine())!=null){
 				if (debug)
-					Debug.errl(line);
+					Debug.pl("ERROR", line);
 			}
 			reader.close();
 			exitVal = p.waitFor();   
@@ -106,7 +106,7 @@ public class SVMWrapper extends Model{
 			String line = null;
 			while ((line = reader.readLine())!=null){
 				if (debug)
-					Debug.errl(line);
+					Debug.pl("ERROR", line);
 				//            	System.out.println(line);
 				//            	buf.append(line);
 				if (line.startsWith("Accuracy"))
@@ -160,7 +160,7 @@ public class SVMWrapper extends Model{
 			SVMReader.write((ClassData)data,tmp.getPath(), this );
 			//			if (new File(trainFile).exists())
 			double[] r = test(tmp.getPath(), perf);
-			Debug.println(r[0]+"\t"+r[1]+"\t"+r[2]);
+			Debug.pl(r[0]+"\t"+r[1]+"\t"+r[2]);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -175,7 +175,7 @@ public class SVMWrapper extends Model{
 			SVMReader.write((ClassData)data,tmp.getPath(), this );
 			//			if (new File(trainFile).exists())
 			double[] r = test(tmp.getPath(), modelFile, predFile, perf);
-			Debug.println(r[0]+"\t"+r[1]+"\t"+r[2]);
+			Debug.pl(r[0]+"\t"+r[1]+"\t"+r[2]);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

@@ -5,7 +5,7 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import test.Debug;
+import util.io.Debug;
 import classifier.Model;
 
 public class ClassData extends Data {

@@ -7,7 +7,7 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import test.Debug;
+import util.io.Debug;
 import abs.Feature;
 import abs.Label;
 import abs.SeqData;
@@ -39,7 +39,7 @@ public class SeqReader {
 			boolean start = true;
 			SeqInstance inst = null;
 			if (!isTrain && m.labelFactory.all_labels.size() == 0)
-				Debug.println("missing model states in test phase!");
+				Debug.pl("missing model states in test phase!");
 			// all_states.add(new State("[START]"));
 			String line = null;
 			if (isTrain)
@@ -68,7 +68,7 @@ public class SeqReader {
 							}
 							else
 							{
-								Debug.println("Invalid state @ SeqData.read()");
+								Debug.pl("Invalid state @ SeqData.read()");
 							}
 						}
 						inst.features.add(new TIntArrayList());
@@ -108,7 +108,7 @@ public class SeqReader {
 			}
 			
 		} catch (Exception e) {
-			Debug.println("ClassData.read()", e.getMessage());
+			Debug.pl("ClassData.read()", e.getMessage());
 		}
 		return data;
 	}

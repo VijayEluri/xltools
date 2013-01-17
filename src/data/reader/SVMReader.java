@@ -3,7 +3,7 @@ package data.reader;
 import java.io.File;
 import java.util.HashSet;
 
-import test.Debug;
+import util.io.Debug;
 import util.QuickSort;
 import util.io.FileUtil;
 import abs.ClassData;
@@ -18,7 +18,7 @@ public class SVMReader {
 		m.featureFactory.isTrain = isTrain;
 		m.labelFactory.isTrain = isTrain;
 		if (!new File(file).exists())
-			Debug.errl(" file can't be found:"+file);
+			Debug.pl("ERROR", " file can't be found:"+file);
 		ClassData data = new ClassData();
 		String[] lines = FileUtil.getTextFromFile(file).split("\n");
 		//		trainFile = filename;

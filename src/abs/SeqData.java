@@ -7,7 +7,7 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import test.Debug;
+import util.io.Debug;
 import classifier.Model;
 import classifier.SequenceModel;
 
@@ -50,7 +50,7 @@ public class SeqData extends Data {
 			boolean start = true;
 			SeqInstance inst = null;
 			if (!isTrain && model.all_states.size() == 0)
-				Debug.println("missing model states in test phase!");
+				Debug.pl("missing model states in test phase!");
 			// all_states.add(new State("[START]"));
 			String line = null;
 			if (isTrain)
@@ -79,7 +79,7 @@ public class SeqData extends Data {
 							}
 							else
 							{
-								Debug.println("Invalid state @ SeqData.read()");
+								Debug.pl("Invalid state @ SeqData.read()");
 							}
 						}
 						inst.features.add(new TIntArrayList());
@@ -118,7 +118,7 @@ public class SeqData extends Data {
 			}
 			
 		} catch (Exception e) {
-			Debug.println("SeqData.read()", e.getMessage());
+			Debug.pl("SeqData.read()", e.getMessage());
 		}
 	}
 
@@ -142,7 +142,7 @@ public class SeqData extends Data {
 	 * inst.features.get(f_pos).add(all_features.size()); all_features.add(f); }
 	 * else { inst.features.get(f_pos).add(idx_all_features); } } } } else {
 	 * start = true; instances.add(inst); } } if (!start) instances.add(inst); }
-	 * catch (Exception e) { Debug.println("SeqData.read()", e.getMessage()); }
+	 * catch (Exception e) { Debug.pl("SeqData.read()", e.getMessage()); }
 	 * }
 	 */
 

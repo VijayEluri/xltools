@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Hashtable;
 
-import test.Debug;
+import util.io.Debug;
 
 public class LabelFactory implements Serializable  {
 	/**
@@ -27,11 +27,11 @@ public class LabelFactory implements Serializable  {
 	}
 	public  int index(Label label) {
 		if (labelIndex ==null || label ==null ){
-			Debug.println(""+labelIndex +" "+label);
+			Debug.pl(""+labelIndex +" "+label);
 		}
 		Integer l = labelIndex.get(label);
 		if (l ==null){
-			Debug.println(""+labelIndex +" "+label+" "+l);
+			Debug.pl(""+labelIndex +" "+label+" "+l);
 		}
 		return l;
 	}

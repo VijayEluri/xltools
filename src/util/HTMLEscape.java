@@ -1394,7 +1394,7 @@ interface Sortable
   * @exception ClassCastException If the vector contains objects that
   * are not <code>Ordered</code>.
   */
- public static void QuickSort (Vector v) throws ClassCastException
+ public static void QuickSort (Vector<Object> v) throws ClassCastException
  {
      QuickSort (v, 0, v.size () - 1);
  }
@@ -1414,7 +1414,7 @@ interface Sortable
   * @exception ClassCastException If the vector contains objects that
   * are not <code>Ordered</code>.
   */
- public static void QuickSort (Vector v, int lo0, int hi0) throws ClassCastException
+ public static void QuickSort (Vector<Object> v, int lo0, int hi0) throws ClassCastException
  {
      int lo = lo0;
      int hi = hi0;
@@ -1454,7 +1454,7 @@ interface Sortable
      }
  }
 
- private static void swap (Vector v, int i, int j)
+ private static void swap (Vector<Object> v, int i, int j)
  {
      Object o;
 
@@ -1691,9 +1691,9 @@ interface Sortable
   * @exception ClassCastException If the keys of the hashtable
   * are not <code>Ordered</code>.
   */
- public static Object[] QuickSort (Hashtable h) throws ClassCastException
+ public static Object[] QuickSort (Hashtable<?, ?> h) throws ClassCastException
  {
-     Enumeration e;
+     Enumeration<?> e;
      boolean are_strings;
      Object[] ret;
 

@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Hashtable;
 
-import test.Debug;
+import util.io.Debug;
 
 public class FeatureFactory implements Serializable {
 	/**
@@ -33,7 +33,7 @@ public class FeatureFactory implements Serializable {
 	// num = index + 1;
 	// }
 	public void filter(ClassData data){
-		Debug.println("before filtering "+all_features.size());
+		Debug.pl("before filtering "+all_features.size());
 		long sum = 0;
 		for (int i = all_features.size() - 1; i >=0 ; i--){
 			sum+=all_features.get(i).freq;
@@ -42,14 +42,14 @@ public class FeatureFactory implements Serializable {
 				all_features.remove(i);
 			}
 		}
-		Debug.println("average # = "+sum/all_features.size());
+		Debug.pl("average # = "+sum/all_features.size());
 		Hashtable<Integer, Integer> old2new = new Hashtable<Integer, Integer>();
 		for (int i = 0; i < all_features.size(); i++){
 			old2new.put(all_features.get(i).id, i);
 			all_features.get(i).id = i;
 		}
 		totalNum = all_features.size();
-		Debug.println("after filtering "+all_features.size());
+		Debug.pl("after filtering "+all_features.size());
 		for (Instance inst: data.instances){
 			for (int i = inst.featureIndex.size()-1; i >= 0; i--){
 				if (!old2new.containsKey(inst.featureIndex.get(i))){

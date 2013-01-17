@@ -39,8 +39,8 @@ public class BinaryTester extends Tester {
 		}
 
 		double prec = (double)numPredPosCorrect / numPredPos, rec = (double) numPredPosCorrect/ numPos;
-		//		Debug.println("precision: "+prec+"("+numPredPosCorrect +"/"+ numPredPos+")");
-		//		Debug.println("recall: "+rec+"("+numPredPosCorrect +"/"+ numPos+")");
+		//		Debug.pl("precision: "+prec+"("+numPredPosCorrect +"/"+ numPredPos+")");
+		//		Debug.pl("recall: "+rec+"("+numPredPosCorrect +"/"+ numPos+")");
 		Debug.print(prec+"\t"+rec+"\t" +2*prec*rec/ (prec+rec));
 	}
 

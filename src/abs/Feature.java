@@ -72,7 +72,7 @@ public class Feature implements Serializable  {
 	// }
 	// catch (IndexOutOfRangeException e)
 	// {
-	// Debug.println("words.length != pos.length ", e.Message);
+	// Debug.pl("words.length != pos.length ", e.Message);
 	// return 0;
 	// }
 	// }

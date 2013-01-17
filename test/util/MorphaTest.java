@@ -4,7 +4,7 @@ import java.io.StringReader;
 import java.util.Hashtable;
 
 import junit.framework.TestCase;
-import test.Debug;
+import util.io.Debug;
 import util.ling.Morpha;
 
 

@@ -1,6 +1,6 @@
 package classifier.logreg;
 
-import test.Debug;
+import util.io.Debug;
 import abs.ClassData;
 import abs.Data;
 import abs.Instance;
@@ -28,7 +28,7 @@ public class LRConjugateLearner extends classifier.Learner{
 		this.m = m;
 		if (m == null)
 		{
-			Debug.println("learner doesn't have a model");
+			Debug.pl("learner doesn't have a model");
 			return;
 		}
 
@@ -78,7 +78,7 @@ public class LRConjugateLearner extends classifier.Learner{
 		}
 		for (int idx_iter = 0; idx_iter < MAX_ITER_NUM; idx_iter++)
 		{
-			//        	Debug.println(idx_iter+"... ");
+			//        	Debug.pl(idx_iter+"... ");
 			long startBuild = System.currentTimeMillis();
 			m.predict(classdata, new MultiClassPerf(m.labelFactory.all_labels.size()));//test	
 			//        	tester.test(seqdata, m);//test
@@ -149,7 +149,7 @@ public class LRConjugateLearner extends classifier.Learner{
 			
 			long endBuild = System.currentTimeMillis();
 			double timeInSeconds = (double) (endBuild - startBuild) / (double) 1000;
-			Debug.println(idx_iter+"th iteration took " + timeInSeconds+" seconds");
+			Debug.pl(idx_iter+"th iteration took " + timeInSeconds+" seconds");
 		}
 	}
 

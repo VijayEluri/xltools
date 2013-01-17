@@ -11,7 +11,7 @@ import java.util.Random;
 
 import junit.framework.TestCase;
 import test.BinaryTester;
-import test.Debug;
+import util.io.Debug;
 import test.Tester;
 import util.io.FileUtil;
 import abs.ClassData;
@@ -528,7 +528,7 @@ System.exit(-1);
 		//		m.labelFactory.labelIndex.put(m.labelFactory.all_labels.get(0), 1);
 		//		m.labelFactory.labelIndex.put(m.labelFactory.all_labels.get(1), 0);
 		m.learn(train);
-		Debug.println(m.para+"");
+		Debug.pl(m.para+"");
 		m.predict(train, new MultiClassPerf(m.labelFactory.all_labels.size()));
 		for (Instance inst: test.instances){
 			inst.featureIndex.add(F);
